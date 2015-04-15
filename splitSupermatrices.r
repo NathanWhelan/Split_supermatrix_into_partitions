@@ -17,7 +17,7 @@
 
 
 library(Biostrings)
-setwd("~/") ##Change as needed
+setwd("~/") ##Working  Directory Change as needed
 rm(list = ls())
 
 ##The file name should be a suprmatrix in fasta format. Must modify as needed
