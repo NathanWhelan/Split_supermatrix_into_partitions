@@ -1,3 +1,5 @@
+Generally, when phylogenetic supermatrices are published they are published as a single data matrix with gene partitions described either in a nexus file or as a seperate file. However, sometimes it can be useful to do single-gene analyses with previously published datasets so I developed this script. 
+
 This is an R script that splits a phylogenetic data matrix into partitions (e.g. by gene). For specific details see
 comments in scripts. It requires BioStrings.
 
