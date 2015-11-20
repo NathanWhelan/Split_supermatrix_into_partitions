@@ -22,7 +22,7 @@ setwd("~/postDoc/Scripts/test/") ##Change as needed
 rm(list = ls())
 
 ##The file name should be a supermatrix in phylip format. Must modify variable names as needed
-sequenceData<-unmasked(read.AAMultipleAlignment("Dataset1_FullData.phy",format="phylip"))
+sequenceData<-unmasked(readAAMultipleAlignment("Dataset1_FullData.phy",format="phylip"))
 
 ##Gene list should be in PartitionFinder format (i.e. GENE_NAME = startPostition-stopPosition;)
 ##Semicolon at end of each line in gene list is not necessary
@@ -36,11 +36,12 @@ numberRows<-as.integer(nrow(startVar))
 
 #This for loop will go through and split a supermatrix as specified by gene list
 #A single alignment in fasta format will be created for each gene/partition
+##See bash script in repository for removing taxa that was not sampled for any given gene output by this for loop
 for(n in 1:numberRows){
 subset <- AAStringSet(sequenceData, start=as.integer(as.vector(startVar[n,1])), end=as.integer(as.vector(endVar[n,1])))
 LINE1=toString(n)
 NAME=paste(LINE1,".fas",sep="",collapse=NULL)
-write.XStringSet(x=subset, filepath = NAME, format="fasta") #This will give a unique name
+writeXStringSet(x=subset, filepath = NAME, format="fasta") #This will give a unique name
 print(n)
 print(subset)
 }
